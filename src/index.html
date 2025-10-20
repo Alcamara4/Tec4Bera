@@ -14,42 +14,47 @@
             <source src="/assets/gifprincipal.mp4" type="video/mp4">
         </video>
 
-        <!-- HEADER: LOGO, MENÚ Y BOTÓN DE MENÚ MÓVIL -->
-        <div class="relative z-10 flex flex-row justify-between items-center">
+        <!-- HEADER: LOGO, MENÚ DE ESCRITORIO A LA DERECHA Y BOTÓN MÓVIL -->
+        <div class="relative z-10 flex items-center justify-between">
             <div class="mt-15 size-25">
                 <!-- LOGO PRINCIPAL DE LA ESCUELA -->
                 <img src="/assets/EESTN4.png" alt="Logo-Tec4">
             </div>
-            <nav class="relative z-30 text-white flex flex-row md:flex-row items-center justify-end w-auto">
-                <!-- El menú está fuera de la navegación para que al abrirlo no desplace el botón -->
-            </nav>
-        </div>
 
-        <!-- Botón de menú móvil (solo visible en pantallas pequeñas) -->
-        <div class="md:hidden right-6 top-6 z-[100]">
-            <button id="nav-toggle" aria-controls="nav-menu" aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white bg-black/30">
-                <span class="sr-only">Abrir menú principal</span>
-                <!-- Icono: menú hamburguesa -->
-                <svg id="icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <!-- Icono: cerrar (oculto por defecto) -->
-                <svg id="icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-        
-        <!-- MENÚ DE NAVEGACIÓN PRINCIPAL (animado en móvil, horizontal en escritorio) -->
-        <div id="nav-menu" class="text-white max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out md:max-h-screen md:opacity-100 md:overflow-visible z-20 static md:static w-full md:w-auto rounded-md bg-[#263144] md:bg-transparent">
-            <ul class="flex flex-col items-center md:flex-row md:space-x-6 py-3 md:py-0 mt-2 md:mt-0 w-48 md:w-auto mx-auto md:mx-0 px-4">
+            <!-- Menú de escritorio a la derecha del logo en la misma línea -->
+            <ul class="hidden md:flex text-white items-center space-x-4 md:mt-5">
                 <li><a href="#" class="hover:underline">Nosotros</a></li>
-                <li><a href="https://informatec4.vercel.app/" class="hover:underline">Blog</a></li>
+                <li><a href="informate4.vercel.app" class="hover:underline">Noticias</a></li>
                 <li><a href="#" class="hover:underline">Inscripciones</a></li>
                 <li><a href="#" class="hover:underline">Tecnicaturas</a></li>
                 <li><a href="#" class="hover:underline">etc</a></li>
                 <li><a href="#" class="hover:underline">etc2</a></li>
             </ul>
+
+            <!-- Botón móvil, alineado a la derecha del logo -->
+            <button id="nav-toggle" aria-controls="nav-menu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white bg-black/30">
+                <span class="sr-only">Abrir menú principal</span>
+                <svg id="icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- MENÚ MÓVIL: en flujo normal, empuja el contenido hacia abajo -->
+        <div id="nav-menu" class="md:hidden text-white max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out w-full">
+            <div class="ml-auto mr-6 mt-2 w-56 rounded-md bg-[#263144]">
+            <ul class="flex flex-col items-stretch py-2 px-3 space-y-1">
+                <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Nosotros</a></li>
+                <li><a href="informate4.vercel.app" class="block py-2 px-3 rounded hover:bg-white/10">Noticias</a></li>
+                <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Inscripciones</a></li>
+                <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Tecnicaturas</a></li>
+                <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">etc</a></li>
+                <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">etc2</a></li>
+            </ul>
+            </div>
         </div>
 
         <!-- SECCIÓN CENTRAL: LOGO GRANDE Y NOMBRE DE LA ESCUELA -->

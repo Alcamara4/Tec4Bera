@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Pañol - Técnica 4</title>
+</head>
+<body class="bg-blue-900 min-h-screen">
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container mx-auto p-8 min-h-screen">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
+            
+            <!-- COLUMNA IZQUIERDA (2/3 del ancho) -->
+            <div class="lg:col-span-2 flex flex-col space-y-6">
+                
+                <!-- TÍTULO CENTRADO -->
+                <div class="flex justify-center">
+                    <div class="bg-blue-600 text-white px-8 py-4 rounded-lg shadow-lg">
+                        <h1 class="text-3xl font-bold flex items-center space-x-3">
+                            <span class="text-4xl">🔧</span>
+                            <span>Pañol</span>
+                        </h1>
+                    </div>
+                </div>
+                
+                <!-- VIDEO GRANDE -->
+                <div class="bg-gray-600 rounded-2xl overflow-hidden flex-1 min-h-96 shadow-2xl backdrop-blur-sm border border-white/20">
+                    <video 
+                        src="/assets/gifpañol.mp4" 
+                        alt="Video del pañol" 
+                        class="w-full h-full object-cover rounded-2xl"
+                        autoplay 
+                        muted 
+                        loop
+                        playsinline>
+                        Tu navegador no soporta el elemento video.
+                    </video>
+                </div>
+                
+                <!-- DOS IMÁGENES PEQUEÑAS LADO A LADO -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-600 rounded-2xl overflow-hidden h-48 shadow-xl backdrop-blur-sm border border-white/20 hover:shadow-2xl transition-all duration-300">
+                        <img src="/assets/pañolimagen1.jpg" alt="Imagen 1" class="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="bg-gray-600 rounded-2xl overflow-hidden h-48 shadow-xl backdrop-blur-sm border border-white/20 hover:shadow-2xl transition-all duration-300">
+                        <img src="/assets/pañolimagen2.jpg" alt="Imagen 2" class="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- COLUMNA DERECHA (1/3 del ancho) -->
+            <div class="lg:col-span-1 flex flex-col justify-between">
+                
+                <!-- PANEL DE INFORMACIÓN DEL PAÑOL -->
+                <div class="bg-blue-700/80 text-white p-8 rounded-2xl flex-1 flex items-center shadow-2xl backdrop-blur-md border border-white/20 hover:shadow-3xl transition-all duration-300">
+                    <div>
+                        <h2 class="text-2xl lg:text-3xl font-bold mb-6 text-center">Información del Pañol</h2>
+                        <p class="text-base lg:text-lg leading-relaxed mb-4">
+                            El pañol es un espacio fundamental en nuestra institución educativa, 
+                            donde se almacenan y organizan los materiales, herramientas y equipos 
+                            necesarios para el desarrollo de las actividades académicas y prácticas 
+                            de los estudiantes.
+                        </p>
+                        <p class="text-base lg:text-lg leading-relaxed">
+                            Aquí encontrarás todo lo necesario para tus proyectos y trabajos prácticos, 
+                            con un sistema de organización que facilita el acceso y la gestión de los recursos.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- BOTÓN EN LA PARTE INFERIOR -->
+                <div class="mt-6">
+                    <button class="w-full bg-blue-600/90 text-white py-4 px-6 rounded-2xl font-bold text-lg shadow-xl backdrop-blur-sm border border-white/20 hover:bg-blue-500 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                        Acceder al Pañol
+                    </button>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Script para efectos adicionales -->
+    <script src="main.js"></script>
+</body>
+</html>
+

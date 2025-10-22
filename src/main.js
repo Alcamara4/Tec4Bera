@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+	// Función para hacer el mapa responsive
+	initResponsiveMap();
+	
 	const navToggle = document.getElementById('nav-toggle');
 	const navMenu = document.getElementById('nav-menu');
 	const iconOpen = document.getElementById('icon-open');
@@ -84,4 +87,52 @@ document.addEventListener('DOMContentLoaded', function () {
 				});
 			});
 		}
-});
+	});
+
+
+// Función para hacer el mapa de Google Maps responsive
+function initResponsiveMap() {
+	const mapContainer = document.getElementById('map-container');
+	const googleMap = document.getElementById('google-map');
+	
+	if (!mapContainer || !googleMap) return;
+	
+	// Función para ajustar el tamaño del mapa
+	function adjustMapSize() {
+		const screenWidth = window.innerWidth;
+		
+		if (screenWidth < 768) {
+			// En móvil: hacer el mapa más pequeño y centrado
+			googleMap.style.width = '100%';
+			googleMap.style.maxWidth = '100%';
+			googleMap.style.height = '300px';
+			mapContainer.style.padding = '0 16px';
+		} else if (screenWidth < 1024) {
+			// En tablet: tamaño medio
+			googleMap.style.width = '100%';
+			googleMap.style.maxWidth = '500px';
+			googleMap.style.height = '400px';
+			mapContainer.style.padding = '0';
+		} else {
+			// En desktop: tamaño completo
+			googleMap.style.width = '100%';
+			googleMap.style.maxWidth = '600px';
+			googleMap.style.height = '450px';
+			mapContainer.style.padding = '0';
+		}
+	}
+	
+	// Ajustar el tamaño inicial
+	adjustMapSize();
+	
+	// Ajustar el tamaño cuando cambie el tamaño de la ventana
+	window.addEventListener('resize', function() {
+		adjustMapSize();
+	});
+	
+	// Ajustar el tamaño cuando cambie la orientación del dispositivo
+	window.addEventListener('orientationchange', function() {
+		// Pequeño delay para que el navegador actualice las dimensiones
+		setTimeout(adjustMapSize, 100);
+	});
+}

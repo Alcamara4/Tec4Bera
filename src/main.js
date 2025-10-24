@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 
+	
 // Función para hacer el mapa de Google Maps responsive
 function initResponsiveMap() {
 	const mapContainer = document.getElementById('map-container');
@@ -136,3 +137,92 @@ function initResponsiveMap() {
 		setTimeout(adjustMapSize, 100);
 	});
 }
+
+// Función para animar el timeline al hacer scroll de la pagina de la institucion 
+function initTimelineScrollAnimation() {
+	const timeline = document.getElementById('timeline');
+	if (!timeline) return;
+	
+	// Obtener elementos del timeline
+	const timelineItems = timeline.querySelectorAll('.relative .flex');
+	const verticalLine = timeline.querySelector('.absolute');
+	
+	// Estado del scroll
+	let isScrollingDown = false;
+	let lastScrollY = window.scrollY;
+	let hasAnimated = false;
+	
+	function handleScroll() {
+		const currentScrollY = window.scrollY;
+		const timelineRect = timeline.getBoundingClientRect();
+		const windowHeight = window.innerHeight;
+		
+		// Detectar dirección del scroll
+		isScrollingDown = currentScrollY > lastScrollY;
+		
+		// Calcular si el timeline está visible en la pantalla
+		const isTimelineVisible = timelineRect.top < windowHeight && timelineRect.bottom > 0;
+		
+		if (isTimelineVisible && !hasAnimated) {
+			// Solo animar una vez cuando aparece
+			if (isScrollingDown) {
+				// Animar elementos del timeline uno por uno
+				timelineItems.forEach((item, index) => {
+					setTimeout(() => {
+						item.style.opacity = '1';
+						item.style.transform = 'translateX(0)';
+						item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+					}, index * 200); // Delay escalonado de 200ms
+				});
+				
+				// Animar línea vertical
+				setTimeout(() => {
+					verticalLine.style.opacity = '1';
+					verticalLine.style.transform = 'scaleY(1)';
+					verticalLine.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+				}, 100);
+				
+				hasAnimated = true;
+			}
+		} else if (!isTimelineVisible && hasAnimated) {
+			// Resetear cuando sale de vista
+			timelineItems.forEach(item => {
+				item.style.opacity = '0';
+				item.style.transform = 'translateX(-30px)';
+				item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+			});
+			
+			verticalLine.style.opacity = '0';
+			verticalLine.style.transform = 'scaleY(0)';
+			verticalLine.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+			
+			hasAnimated = false;
+		}
+		
+		lastScrollY = currentScrollY;
+	}
+	
+	// Estado inicial - oculto
+	timelineItems.forEach(item => {
+		item.style.opacity = '0';
+		item.style.transform = 'translateX(-30px)';
+		item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+	});
+	
+	verticalLine.style.opacity = '0';
+	verticalLine.style.transform = 'scaleY(0)';
+	verticalLine.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+	
+	// Agregar event listener para scroll
+	window.addEventListener('scroll', handleScroll, { passive: true });
+	
+	// Verificar estado inicial
+	handleScroll();
+}
+
+// Inicializar animación del timeline cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+	initTimelineScrollAnimation();
+});
+
+

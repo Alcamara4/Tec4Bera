@@ -236,6 +236,51 @@ function initTimelineScrollAnimation() {
 // Inicializar animación del timeline cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
 	initTimelineScrollAnimation();
+	initAccordion();
 });
+
+// Función para inicializar los acordeones
+function initAccordion() {
+	const accordionBtns = document.querySelectorAll('.accordion-btn');
+	
+	accordionBtns.forEach(btn => {
+		btn.addEventListener('click', function() {
+			const accordionContent = this.nextElementSibling;
+			const accordionIcon = this.querySelector('.accordion-icon');
+			const isOpen = accordionContent.classList.contains('accordion-open');
+			
+			// Cerrar todos los otros acordeones
+			accordionBtns.forEach(otherBtn => {
+				if (otherBtn !== this) {
+					const otherContent = otherBtn.nextElementSibling;
+					const otherIcon = otherBtn.querySelector('.accordion-icon');
+					
+					otherContent.classList.remove('accordion-open');
+					otherContent.style.maxHeight = '0px';
+					otherIcon.classList.remove('rotate-180');
+					otherBtn.classList.remove('bg-blue-800', 'text-white');
+					otherBtn.classList.add('text-blue-800');
+				}
+			});
+			
+			// Toggle del acordeón actual
+			if (isOpen) {
+				// Cerrar
+				accordionContent.classList.remove('accordion-open');
+				accordionContent.style.maxHeight = '0px';
+				accordionIcon.classList.remove('rotate-180');
+				this.classList.remove('bg-blue-800', 'text-white');
+				this.classList.add('text-blue-800');
+			} else {
+				// Abrir
+				accordionContent.classList.add('accordion-open');
+				accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+				accordionIcon.classList.add('rotate-180');
+				this.classList.remove('text-blue-800');
+				this.classList.add('bg-blue-800', 'text-white');
+			}
+		});
+	});
+}
 
 

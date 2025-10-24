@@ -1,3 +1,16 @@
+// Configuración de Tailwind CSS
+if (typeof tailwind !== 'undefined') {
+	tailwind.config = {
+		theme: {
+			extend: {
+				fontFamily: {
+					'sans': ['Encode Sans', 'sans-serif'],
+				}
+			}
+		}
+	}
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 	// Función para hacer el mapa responsive
 	initResponsiveMap();

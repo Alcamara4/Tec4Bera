@@ -69,32 +69,38 @@
                 </div>
             </div>
         </div>
-        <!-- SECCIÓN CENTRAL: LOGO GRANDE Y NOMBRE DE LA ESCUELA -->
-        <div class="relative z-10 flex flex-col justify-center items-center">
-            <img src="/assets/LogoTec4Blanco.png" alt="Logo-Tec4" class="mx-auto w-52 md:w-72 lg:w-50 opacity-80">
-        </div>
-
-        <div class="text-white text-5x1 md:text-5xl p-12 text-center font-extrabold">
-            <h1 class="">Campus</h1>
-        </div>
-
-        <div class="text-white text-5x1 md:text-2xl p-12 text-center">
-            <div class="bg-slate-600/20 text-white p-8 rounded-2xl items-center shadow-2xl backdrop-blur-md">
-                <p class="font-extrabold">¿Qué es el Campus?</p>
-                <p class="">El Campus de los alumnos de E.E.S.T. N°4 es un espacio digital de la institucion donde los
-                    estudiantes pueden acceder al material de estudio que los profesores comparten para cada materia.
-                </p>
-                <p class="">Sirve para que los alumnos trabajen con los contenidos que los docentes preparan, reforzando
-                    lo aprendido en clase y organizando mejor sus actividades. Es una herramienta que facilita el
-                    estudio y el trabajo diario de los estudiantes.</p>
+        <!-- SECCIÓN CENTRAL: CONTENIDO PRINCIPAL -->
+        <div class="relative z-10 flex flex-col justify-center items-center min-h-screen">
+            <!-- LOGO GRANDE -->
+            <div class="mb-8">
+                <img src="/assets/LogoTec4Blanco.png" alt="Logo-Tec4" class="mx-auto w-60 md:w-80 lg:w-96 opacity-80">
             </div>
-        </div>
 
-        <div class="mt-6 text-center">
-            <button
-                class="w-auto text-white py-4 px-6 rounded-2xl font-bold text-lg shadow-xl bg-slate-600/90 backdrop-blur-sm border border-white/20 hover:bg-gray-500 hover:shadow-2xl hover:scale-105 transition-all duration-300 justify-center items-center">
-                <a href="https://campus.tecnica4berazategui.edu.ar/login/index.php"> Acceder al Campus</a>
-            </button>
+            <!-- TÍTULO -->
+            <div class="text-white text-4xl md:text-6xl text-center font-extrabold mb-8">
+                <h1>Campus</h1>
+            </div>
+
+            <!-- CONTENIDO INFORMATIVO -->
+            <div class="text-white text-center max-w-4xl mx-auto px-4">
+                <div class="bg-slate-600/20 text-white p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md">
+                    <p class="font-extrabold text-xl md:text-2xl mb-4">¿Qué es el Campus?</p>
+                    <p class="text-base md:text-lg mb-4 leading-relaxed">El Campus de los alumnos de E.E.S.T. N°4 es un espacio digital de la institucion donde los
+                        estudiantes pueden acceder al material de estudio que los profesores comparten para cada materia.
+                    </p>
+                    <p class="text-base md:text-lg leading-relaxed">Sirve para que los alumnos trabajen con los contenidos que los docentes preparan, reforzando
+                        lo aprendido en clase y organizando mejor sus actividades. Es una herramienta que facilita el
+                        estudio y el trabajo diario de los estudiantes.</p>
+                </div>
+            </div>
+
+            <!-- BOTÓN DE ACCESO -->
+            <div class="mt-8 text-center">
+                <a href="https://campus.tecnica4berazategui.edu.ar/login/index.php" 
+                   class="inline-block text-white py-3 md:py-4 px-6 md:px-8 rounded-2xl font-bold text-base md:text-lg shadow-xl bg-slate-600/90 backdrop-blur-sm border border-white/20 hover:bg-gray-500 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    Acceder al Campus
+                </a>
+            </div>
         </div>
     </div>
 
@@ -168,6 +174,7 @@
         </div>
     </footer>
 
+    <script src="main.js"></script>
 </body>
 
 </html>

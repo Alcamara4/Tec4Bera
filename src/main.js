@@ -260,6 +260,12 @@ function initAccordion() {
 					otherIcon.classList.remove('rotate-180');
 					otherBtn.classList.remove('bg-blue-800', 'text-white');
 					otherBtn.classList.add('text-blue-800');
+					
+					// Restaurar texto "Saber más" en otros botones
+					const otherBtnText = otherBtn.childNodes[0];
+					if (otherBtnText && otherBtnText.textContent) {
+						otherBtnText.textContent = otherBtnText.textContent.replace('Mostrar menos', 'Saber más');
+					}
 				}
 			});
 			
@@ -271,6 +277,12 @@ function initAccordion() {
 				accordionIcon.classList.remove('rotate-180');
 				this.classList.remove('bg-blue-800', 'text-white');
 				this.classList.add('text-blue-800');
+				
+				// Cambiar texto a "Saber más"
+				const btnText = this.childNodes[0];
+				if (btnText && btnText.textContent) {
+					btnText.textContent = btnText.textContent.replace('Mostrar menos', 'Saber más');
+				}
 			} else {
 				// Abrir
 				accordionContent.classList.add('accordion-open');
@@ -278,6 +290,12 @@ function initAccordion() {
 				accordionIcon.classList.add('rotate-180');
 				this.classList.remove('text-blue-800');
 				this.classList.add('bg-blue-800', 'text-white');
+				
+				// Cambiar texto a "Mostrar menos"
+				const btnText = this.childNodes[0];
+				if (btnText && btnText.textContent) {
+					btnText.textContent = btnText.textContent.replace('Saber más', 'Mostrar menos');
+				}
 			}
 		});
 	});

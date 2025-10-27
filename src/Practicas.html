@@ -1,174 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <title>Tecnica 4</title>
+    <title>Prácticas Profesionalizantes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primer-azul': '#2a3b4f',
+                        'gris': '#79828d'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="font-sans">
-    <!-- CONTENEDOR PRINCIPAL CON VIDEO DE FONDO -->
-    <div class="-mt-24 relative w-full py-12 px-12 min-h-screen bg-black/50">
-        <video class="w-full h-full absolute inset-0 object-cover opacity-90 -z-10" autoplay muted loop playsinline>
-            <source src="/assets/gifprincipal.mp4" type="video/mp4">
-        </video>
-
-        <!-- HEADER: LOGO, MENÚ DE ESCRITORIO A LA DERECHA Y BOTÓN MÓVIL -->
-        <div class="relative z-10 flex items-center justify-between">
-            <div class="mt-15 size-25">
-                <!-- LOGO PRINCIPAL DE LA ESCUELA -->
-                <a href="index.html"><img src="/assets/EESTN4.png" alt="Logo-Tec4"></a>
-            </div>
-
-            <!-- Menú de escritorio a la derecha del logo en la misma línea -->
-            <ul class="hidden md:flex text-white items-center space-x-4 md:mt-5">
-                <li><a href="./institucion.html" class="hover:underline">Institución</a></li>
-                <li><a href="https://informatec4.vercel.app/" class="hover:underline">Noticias</a></li>
-                <li><a href="./Inscripciones.html" class="hover:underline">Inscripciones</a></li>
-                <li><a href="./Tecnicaturas.html" class="hover:underline">Tecnicaturas</a></li>
-                <li><a href="./Campus.html" class="hover:underline">Campus</a></li>
-                <li><a href="./Practicas.html" class="hover:underline">Prácticas</a></li>
-                <li><a href="./pañol.html" class="hover:underline">Pañol</a></li>
-            </ul>
-
-            <!-- Botón móvil, alineado a la derecha del logo -->
-            <button id="nav-toggle" aria-controls="nav-menu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white bg-black/30">
-                <span class="sr-only">Abrir menú principal</span>
-                <svg id="icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg id="icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- MENÚ MÓVIL: centrado y cerca del botón -->
-        <div id="nav-menu" class="md:hidden text-white max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out w-full">
-            <div class="flex justify-center mt-2">
-                <div class="w-64 rounded-md bg-[#263144] shadow-lg">
-                    <ul class="flex flex-col items-stretch py-3 px-4 space-y-1">
-                        <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Institución</a></li>
-                        <li><a href="informate4.vercel.app" class="block py-2 px-3 rounded hover:bg-white/10">Noticias</a></li>
-                        <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Inscripciones</a></li>
-                        <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Tecnicaturas</a></li>
-                        <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Campus</a></li>
-                        <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Prácticas</a></li>
-                        <li><a href="#" class="block py-2 px-3 rounded hover:bg-white/10">Pañol</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECCIÓN TITULO: TITULO Y DESCRIPCION -->
-        <div class="relative z-10 flex flex-col justify-center items-center py-12 md:py-20">
-            <p class="mt-0 text-white text-4xl md:text-5xl font-extrabold tracking-wide">Practicas Profesionalizantes</p>
-            <p class="mt-10 text-white text-lg md:text-xl font-semibold"></p>
-        </div>
+<body class="min-h-screen py-12 bg-primer-azul">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 space-y-4 sm:space-y-6">
         
-    </div>
-
-    <!-- SECCIÓN 1 -->
-    <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="bg-gray-100 p-12 md:p-24 flex justify-start items-center">
-            <div class="max-w-md">
-                <div class="w-24 h-2 bg-blue-800 mb-4"></div>
-                <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-6">¡Bienvenidos a nuestra escuela!</h2>
-                <p class="font-light text-gray-600 text-sm md:text-base mb-6 leading-relaxed">La Escuela de Educación Secundaria Técnica N4 (ex media N9), fundada en 1991 y ubicada en Berazategui; Donde ofrecemos tecnicaturas en informática y en programación, con un ciclo escolar de 7 años que incluye clases en talleres y laboratorios. Bajo el legado del prof. Ricardo Alberto López, preparamos a los estudiantes para el mundo y nos enfocamos en que puedan egresarse con las habilidades prácticas para enfrentar el ambiente laboral-digital.</p>
-            </div>
-        </div>
-        <div class="bg-white flex justify-end items-center">
-            <img class="h-full w-full" src="/assets/arreglos1.jpg" class="w-full max-w-md" />
-        </div>
-    </div>
-
-    <!-- SECCION 3 -->
-    <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="md:order-first bg-gray-100 p-12 md:p-24 flex justify-end items-center">
-            <div class="max-w-md">
-                <div class="w-24 h-2 bg-blue-800 mb-4"></div>
-                <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-6">InformaTec</h2>
-                <p class="font-light text-gray-600 text-sm md:text-base mb-6 leading-relaxed">El portal de noticias oficial para la comunidad eductiva de la técnica 4, diseñado para manternos informados y conectados.</p>
-                <a href="https://informatec4.vercel.app/" class="inline-block border-2 border-blue-800 font-light text-blue-800 text-sm uppercase tracking-widest py-3 px-8 hover:bg-blue-800 hover:text-white">Ir</a>
-            </div>
-        </div>
-        <div class="bg-white flex justify-end items-center">
-            <img class="h-full w-full" src="/assets/arreglos.png" class="w-full max-w-md" />
-        </div>
-    </div>
-    
-
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-8 border-b border-gray-700">
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Escuela de Educacion Secundaria Técnica 4</h3>
-                    <p class="text-gray-400 text-sm">
-                    La página oficial de la Escuela de Educación Secundaria Técnica N4 "Ricardo Alberto López".
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="./institucion.html" class="hover:underline">Institución</a></li>
-                        <li><a href="https://informatec4.vercel.app/" class="hover:underline">Noticias</a></li>
-                        <li><a href="./Inscripciones.html" class="hover:underline">Inscripciones</a></li>
-                        <li><a href="./Tecnicaturas.html" class="hover:underline">Tecnicaturas</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="space-y-2 text-sm text-gray-400 mt-11">
-                        <li><a href="./Campus.html" class="hover:underline">Campus</a></li>
-                        <li><a href="./Practicas.html" class="hover:underline">Prácticas</a></li>
-                        <li><a href="./pañol.html" class="hover:underline">Pañol</a></li>
-                        <li><a href="" class="hover:underline">Mensajeria Interna</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Conecta con nosotros</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <span class="sr-only">TikTok</span>
-                            <svg class="size-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                            </svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <span class="sr-only">Instagram</span>
-                            <svg class="size-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-                            </svg>
-                        </a>
-                         
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                            <span class="sr-only">YouTube</span>
-                            <svg class="size-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fillRule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clipRule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
-                </div> 
-            </div>
-            <div class="mt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm text-gray-400">
-                    &copy; 2025 Derechos Reservados a Estudiantes de la Técnica 4.
+        <div class="rounded-lg p-4 sm:p-8 text-center" bg-gris>
+            <div class="bg-gris rounded-lg p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas Profesionalizantes
+                </h2>
+                <p class="text-black font-semibold leading-relaxed text-left text-sm sm:text-base mb-6">
+                    Las Prácticas Profesionalizantes son estrategias formativas integradas en la propuesta curricular de la Educación Técnica. Fueron incorporadas como una materia más en el 7º año del secundario desde el año 2013. Se presentan como espacios de prácticas laborales relacionados con su futura profesión, y son de carácter obligatorio.
                 </p>
-                <div class="mt-4 md:mt-0">
-                    <ul class="flex space-x-6 text-xs text-gray-400">
-                        <li><a href="/privacy" class="hover:text-white transition-colors">Política de privacidad</a></li>
-                        <li><a href="/terms" class="hover:text-white transition-colors">Términos de uso</a></li>
-                        <li><a href="/cookies" class="hover:text-white transition-colors">Política de cookies</a></li>
-                    </ul>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-1">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">¿En qué consisten las prácticas profesionalizantes?</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las Prácticas Profesionalizantes se encuentran supervisadas por 2 docentes a cargo, y las distintas actividades que desarrollan los alumnos en estos espacios tienen como finalidad que estos consoliden, integren y amplíen, las capacidades y saberes trabajados durante los 7 años de su formación.
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                En dos ejes, el técnico, relacionado el abordaje y resolución a las problemáticas técnicas presentadas en este circuito laboral al que se integra el alumno, habrá un mínimo de 200 hs de Prácticas Profesionalizantes para cumplir. Y el eje pedagógico, relacionado con las relaciones vinculares, las comunicaciones, la puesta en marcha de estrategias que complementan y acompañan la resolución del aspecto técnico. Ambos ejes son de importancia y se involucran en la aprobación de este espacio curricular.
+                            </p>
+                        </div>
+                        
+                        <hr class="border-gray-600 my-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">¿Qué realizan los alumnos en las prácticas profesionalizantes?</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Cada grupo de alumnos participará de las Prácticas dentro del marco de un proyecto elaborado por los docentes a cargo y la institución (escuela, empresas, u otro tipo de instituciones) que participa de estas de acuerdo a cierta problemática a resolver.
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Los lugares elegidos para las Prácticas Profesionalizantes son seleccionados por los profesores a cargo de esta materia.
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed">
+                                Para aprobar esta materia hay que tener en cuenta que, es muy importante la asistencia a ellas, el trabajo tiene que estar bien hecho y completo, y sobre todo hay que tener al tanto a los profesores por cualquier inconveniente que se tenga en los lugares concurridos o si por alguna razón no pueden asistir a ellas.
+                            </p>
+                        </div>
+                    </div>
                 </div>
+                
+                <button onclick="toggleContent(1)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
             </div>
         </div>
-    </footer>
-    <script src="/main.js"></script>
+
+        <div class="rounded-lg p-4 sm:p-8 text-center" bg-gris>
+            <div class="bg-gris rounded-lg p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes municipalidad
+                </h2>
+                <p class="text-black font-semibold leading-relaxed text-left text-sm sm:text-base mb-6">
+                    Las prácticas profesionalizantes en la municipalidad ofrecen a los estudiantes la oportunidad de conocer el funcionamiento del sector público y desarrollar competencias específicas en administración municipal.
+                </p>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-2">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes municipales:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                En PP municipales los alumnos realizan tareas en distintas instituciones del municipio de Berazategui. Estas actividades brindan la oportunidad de conocer el funcionamiento de los organismos públicos y colaborar en proyectos que beneficien a la comunidad.
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed">
+                                Municipalidad de Berazategui (detallar oficinas)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(2)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
+        </div>
+
+        <div class="rounded-lg p-4 sm:p-8 text-center" bg-gris>
+            <div class="bg-gris rounded-lg p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes en universidades
+                </h2>
+                <p class="text-black font-semibold leading-relaxed text-left text-sm sm:text-base mb-6">
+                    Las universidades ofrecen espacios de práctica profesionalizante donde los estudiantes pueden aplicar sus conocimientos en un entorno académico y de investigación.
+                </p>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-3">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes en universidades:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las PP en Universidades permiten a los alumnos conocer el ámbito académico y científico, fortaleciendo su vínculo con la educación superior. Estas experiencias facilitan la aplicación de conocimientos técnicos en entornos de investigación, extensión universitaria y desarrollo tecnológico, promoviendo la continuidad de los estudios y el aprendizaje colaborativo.
+                            </p>
+                            <div class="text-black font-semibold leading-relaxed">
+                                <p class="mb-2">• Universidad Tecnológica Nacional Facultad Regional Avellaneda</p>
+                                <p>• Universidad Nacional Arturo Jauretche</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(3)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
+        </div>
+
+        <div class="rounded-lg p-4 sm:p-8 text-center" bg-gris>
+            <div class="bg-gris rounded-lg p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes en instituciones educativas
+                </h2>
+                <p class="text-black font-semibold leading-relaxed text-left text-sm sm:text-base mb-6">
+                    Las instituciones educativas brindan oportunidades de práctica profesionalizante en diferentes niveles del sistema educativo, permitiendo a los estudiantes conocer la realidad del sector.
+                </p>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-4">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes en instituciones educativas:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las PP en Instituciones Educativas brindan la posibilidad de realizar experiencias en escuelas de distintos niveles. Los alumnos colaboran en tareas de apoyo técnico, mantenimiento, y proyectos institucionales, fortaleciendo su sentido de pertenencia, responsabilidad y trabajo en equipo dentro del ámbito educativo.
+                            </p>
+                            <div class="text-black font-semibold leading-relaxed">
+                                <p class="mb-2">• EEST N° 6 - Berazategui</p>
+                                <p class="mb-2">• EES N° 19</p>
+                                <p>• Jardín de infantes N°924</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(4)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
+        </div>
+
+        <div class="rounded-lg p-4 sm:p-8 text-center" bg-gris>
+            <div class="bg-gris rounded-lg p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes privadas
+                </h2>
+                <p class="text-black font-semibold leading-relaxed text-left text-sm sm:text-base mb-6">
+                    Las prácticas profesionalizantes en el sector privado permiten a los estudiantes conocer el funcionamiento de empresas y organizaciones comerciales.
+                </p>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-5">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes privadas:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las PP privadas se desarrollan en empresas del ámbito privado. En este caso, los estudiantes cumplen con una determinada cantidad de horas y adquieren experiencia en entornos laborales reales. En muchos casos, estas prácticas pueden abrirles la posibilidad de obtener un empleo formal dentro de la misma empresa.
+                            </p>
+                            <div class="text-black font-semibold leading-relaxed">
+                                <p class="text-sm">Empresas y organizaciones de distintos rubros ofrecen servicios de consultoría, desarrollo de software, telecomunicaciones, gestión ambiental y entretenimiento. También participan entidades dedicadas a la representación docente y al desarrollo económico y social. Los estudiantes realizan tareas vinculadas a programación, análisis de datos y soporte tecnológico en entornos reales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(5)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
+        </div>
+
+        <div class="rounded-lg p-4 sm:p-8 text-center" bg-gris>
+            <div class="bg-gris rounded-lg p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes internas
+                </h2>
+                <p class="text-black font-semibold leading-relaxed text-left text-sm sm:text-base mb-6">
+                    Las prácticas profesionalizantes internas se realizan dentro de la misma institución educativa, permitiendo a los estudiantes aplicar sus conocimientos en proyectos internos.
+                </p>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-6">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes internas:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las PP internas se llevan a cabo dentro de la institución educativa. Los alumnos deben cumplir con tareas asignadas por sus profesores, orientadas a fortalecer sus habilidades técnicas y profesionales, preparando así su inserción en el mundo laboral.
+                            </p>
+                            <div class="text-black font-semibold leading-relaxed">
+                                <p>• E.E.S.T N° 4</p>
+                            </div>
+                        </div>
+                        
+                        <hr class="border-gray-600 my-6">
+                        
+                        <div>
+                            <div class="flex overflow-x-auto gap-4 sm:gap-6 mb-4 sm:mb-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 pb-2 sm:pb-0 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                                <div class="flex-shrink-0 w-64 sm:w-full">
+                                    <img src="cable.png" 
+                                         alt="Estudiantes trabajando en computadoras en laboratorio" 
+                                         class="w-full aspect-square object-cover rounded-md">
+                                </div>
+                                <div class="flex-shrink-0 w-64 sm:w-full">
+                                    <img src="prog1.jpg" 
+                                         alt="Estudiantes trabajando con laptops en aula" 
+                                         class="w-full aspect-square object-cover rounded-md">
+                                </div>
+                                <div class="flex-shrink-0 w-64 sm:w-full">
+                                    <img src="prog2.jpg" 
+                                         alt="Trabajo de instalación y mantenimiento de cables" 
+                                         class="w-full aspect-square object-cover rounded-md">
+                                </div>
+                            </div>
+                            <style>
+                                /* Estilo para la barra de desplazamiento en móvil */
+                                @media (max-width: 639px) {
+                                    .scrollbar-thin::-webkit-scrollbar {
+                                        height: 8px;
+                                    }
+                                    .scrollbar-thin::-webkit-scrollbar-track {
+                                        background: #e5e7eb;
+                                        border-radius: 4px;
+                                    }
+                                    .scrollbar-thin::-webkit-scrollbar-thumb {
+                                        background: #9ca3af;
+                                        border-radius: 4px;
+                                    }
+                                    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+                                        background: #131414;
+                                    }
+                                }
+                            </style>
+                            <p class="text-sm text-black-900 text-center mb-6 sm:hidden"> Desliza para ver más →</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(6)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleContent(cardNumber) {
+            const content = document.getElementById(`content-${cardNumber}`);
+            const button = event.target;
+            
+            if (content.classList.contains('max-h-0')) {
+                content.classList.remove('max-h-0');
+                content.classList.add('max-h-screen');
+                button.textContent = 'Ver menos';
+            } else {
+                content.classList.remove('max-h-screen');
+                content.classList.add('max-h-0');
+                button.textContent = 'Ver más';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -237,6 +237,7 @@ function initTimelineScrollAnimation() {
 document.addEventListener('DOMContentLoaded', function() {
 	initTimelineScrollAnimation();
 	initAccordion();
+	initPracticasAccordion();
 });
 
 // Función para inicializar los acordeones
@@ -299,6 +300,24 @@ function initAccordion() {
 			}
 		});
 	});
+}
+
+// Función para inicializar los acordeones de la página de Prácticas
+function initPracticasAccordion() {
+	// Función para el acordeón de contenido
+	window.toggleContent = function(cardNumber) {
+		const content = document.getElementById(`content-${cardNumber}`);
+		const button = event.target;
+		
+		if (content.classList.contains('max-h-0')) {
+			content.classList.remove('max-h-0');
+			button.textContent = 'Ver menos';
+		} else {
+			content.classList.remove('max-h-screen');
+			content.classList.add('max-h-0');
+			button.textContent = 'Ver más';
+		}
+	};
 }
 
 

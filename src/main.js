@@ -238,6 +238,17 @@ document.addEventListener('DOMContentLoaded', function() {
 	initTimelineScrollAnimation();
 	initAccordion();
 	initPracticasAccordion();
+	
+	// Inicializar el cambio de color de fondo en la página de Prácticas
+	const mainBody = document.getElementById('main-body');
+	if (mainBody) {
+		// Detectar el scroll y actualizar el color del fondo
+		window.addEventListener('scroll', updateBackgroundColor);
+		
+		// Actualizar al cargar la página
+		window.addEventListener('load', updateBackgroundColor);
+		updateBackgroundColor(); // Llamar inmediatamente también
+	}
 });
 
 // Función para inicializar los acordeones
@@ -319,5 +330,162 @@ function initPracticasAccordion() {
 		}
 	};
 }
+
+// Funciones para la página de Prácticas Profesionalizantes
+// Paleta de colores de oscuro a claro
+const colorPalette = [
+	'#4A5568', // Más oscuro
+	'#556275', // Medio-oscuro
+	'#6C7A89', // Medio
+	'#8B95A5', // Medio-claro
+	'#A8B3C4'  // Más claro
+];
+
+function updateBackgroundColor() {
+	const body = document.getElementById('main-body');
+	if (!body) return;
+	
+	const windowHeight = window.innerHeight;
+	const documentHeight = document.documentElement.scrollHeight - windowHeight;
+	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	
+	// Calcular el porcentaje de scroll (0 a 1)
+	const scrollPercent = Math.min(scrollTop / documentHeight, 1);
+	
+	// Calcular el índice en la paleta de colores
+	const colorIndex = scrollPercent * (colorPalette.length - 1);
+	const lowerIndex = Math.floor(colorIndex);
+	const upperIndex = Math.min(Math.ceil(colorIndex), colorPalette.length - 1);
+	const ratio = colorIndex - lowerIndex;
+	
+	// Interpolar entre dos colores
+	const lowerColor = colorPalette[lowerIndex];
+	const upperColor = colorPalette[upperIndex];
+	const interpolatedColor = interpolateColor(lowerColor, upperColor, ratio);
+	
+	// Aplicar el color al fondo
+	body.style.backgroundColor = interpolatedColor;
+}
+
+function interpolateColor(color1, color2, ratio) {
+	// Convertir hex a RGB
+	const hex1 = color1.replace('#', '');
+	const hex2 = color2.replace('#', '');
+	
+	const r1 = parseInt(hex1.substring(0, 2), 16);
+	const g1 = parseInt(hex1.substring(2, 4), 16);
+	const b1 = parseInt(hex1.substring(4, 6), 16);
+	
+	const r2 = parseInt(hex2.substring(0, 2), 16);
+	const g2 = parseInt(hex2.substring(2, 4), 16);
+	const b2 = parseInt(hex2.substring(4, 6), 16);
+	
+	// Interpolar
+	const r = Math.round(r1 + (r2 - r1) * ratio);
+	const g = Math.round(g1 + (g2 - g1) * ratio);
+	const b = Math.round(b1 + (b2 - b1) * ratio);
+	
+	// Convertir de vuelta a hex
+	return '#' + [r, g, b].map(x => {
+		const hex = x.toString(16);
+		return hex.length === 1 ? '0' + hex : hex;
+	}).join('');
+}
+
+// Función para hacer scroll al contenido
+window.scrollToContent = function() {
+	const contentSection = document.getElementById('content-section');
+	if (contentSection) {
+		// Mostrar el contenido
+		contentSection.classList.remove('hidden');
+		// Pequeño delay para que la transición se vea
+		setTimeout(() => {
+			contentSection.classList.remove('opacity-0');
+			contentSection.classList.add('opacity-100');
+		}, 10);
+		
+		// Hacer scroll suave hacia el contenido
+		setTimeout(() => {
+			contentSection.scrollIntoView({ 
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}, 100);
+	}
+};
+
+// Función para toggle de información
+window.toggleInfo = function(tipo, button) {
+	const infoElement = document.getElementById('info-' + tipo);
+	const span = button.querySelector('span');
+	const svg = button.querySelector('svg');
+	const imagesPrivadas = tipo === 'privadas' ? document.getElementById('images-privadas') : null;
+	
+	if (infoElement) {
+		// Verificar si está expandido
+		const isExpanded = infoElement.style.maxHeight && infoElement.style.maxHeight !== '0px';
+		
+		if (isExpanded) {
+			// Ocultar
+			infoElement.style.maxHeight = '0px';
+			if (span) span.textContent = 'Ver más';
+			if (svg) svg.style.transform = 'rotate(0deg)';
+			
+			// Ocultar imágenes si es la sección de privadas
+			if (imagesPrivadas) {
+				imagesPrivadas.classList.remove('opacity-100');
+				imagesPrivadas.classList.add('opacity-0');
+				setTimeout(() => {
+					imagesPrivadas.classList.add('hidden');
+				}, 300);
+			}
+		} else {
+			// Mostrar
+			infoElement.style.maxHeight = infoElement.scrollHeight + 'px';
+			if (span) span.textContent = 'Ver menos';
+			if (svg) svg.style.transform = 'rotate(180deg)';
+			
+			// Mostrar imágenes si es la sección de privadas
+			if (imagesPrivadas) {
+				imagesPrivadas.classList.remove('hidden');
+				setTimeout(() => {
+					imagesPrivadas.classList.remove('opacity-0');
+					imagesPrivadas.classList.add('opacity-100');
+				}, 10);
+			}
+		}
+	}
+};
+
+// Función para toggle de información municipal
+window.toggleMunicipalInfo = function(button) {
+	const subSections = document.getElementById('municipal-sub-sections');
+	const span = button.querySelector('span');
+	const svg = button.querySelector('svg');
+	
+	if (subSections) {
+		// Verificar si está visible
+		const isVisible = !subSections.classList.contains('hidden');
+		
+		if (isVisible) {
+			// Ocultar
+			subSections.classList.add('hidden');
+			subSections.classList.remove('opacity-100');
+			subSections.classList.add('opacity-0');
+			if (span) span.textContent = 'Ver más';
+			if (svg) svg.style.transform = 'rotate(0deg)';
+		} else {
+			// Mostrar
+			subSections.classList.remove('hidden');
+			setTimeout(() => {
+				subSections.classList.remove('opacity-0');
+				subSections.classList.add('opacity-100');
+			}, 10);
+			if (span) span.textContent = 'Ver menos';
+			if (svg) svg.style.transform = 'rotate(180deg)';
+		}
+	}
+};
+
 
 

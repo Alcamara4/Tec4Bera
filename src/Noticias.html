@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Tecnica 4</title>
+</head>
+
+<body class="font-sans">
+    <!-- CONTENEDOR PRINCIPAL CON VIDEO DE FONDO -->
+    <div class="-mt-24 relative w-full py-12 px-12 min-h-screen bg-black/50">
+        <video class="w-full h-full absolute inset-0 object-cover opacity-90 -z-10" autoplay muted loop playsinline>
+            <source src="/assets/gifprincipal.mp4" type="video/mp4">
+        </video>
+
+        <!-- HEADER: LOGO, MENÚ DE ESCRITORIO A LA DERECHA Y BOTÓN MÓVIL -->
+        <div class="relative z-10 flex items-center justify-between">
+            <div class="mt-15 size-25">
+                <!-- LOGO PRINCIPAL DE LA ESCUELA -->
+                <a href="index.html"><img src="/assets/EESTN4.png" alt="Logo-Tec4"></a>
+            </div>
+
+            <!-- Menú de escritorio a la derecha del logo en la misma línea -->
+            <ul class="hidden md:flex text-white items-center space-x-4 md:mt-5">
+                <li><a href="./institucion.html" class="hover:underline">Institución</a></li>
+                <li><a href="./Noticias.html" class="hover:underline">Noticias</a></li>
+                <li><a href="./Inscripciones.html" class="hover:underline">Inscripciones</a></li>
+                <li><a href="./Tecnicaturas.html" class="hover:underline">Tecnicaturas</a></li>
+                <li><a href="./Campus.html" class="hover:underline">Campus</a></li>
+                <li><a href="./Practicas.html" class="hover:underline">Prácticas</a></li>
+                <li><a href="./pañol.html" class="hover:underline">Pañol</a></li>
+                <li><a href="./Mensajeria.html" class="hover:underline">Mensajeria Interna</a></li>
+            </ul>
+
+            <!-- Botón móvil, alineado a la derecha del logo -->
+            <button id="nav-toggle" aria-controls="nav-menu" aria-expanded="false"
+                class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white bg-black/30 mt-6">
+                <span class="sr-only">Abrir menú principal</span>
+                <svg id="icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- MENÚ MÓVIL: centrado y cerca del botón -->
+        <div id="nav-menu"
+            class="md:hidden text-white max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out w-full">
+            <div class="flex justify-center mt-2">
+                <div class="w-64 rounded-md bg-[#263144] shadow-lg">
+                    <ul class="flex flex-col items-stretch py-3 px-4 space-y-1">
+                        <li><a href="./institucion.html" class="block py-2 px-3 rounded hover:bg-white/10">Institución</a></li>
+                        <li><a href="./Noticias.html" class="block py-2 px-3 rounded hover:bg-white/10">Noticias</a></li>
+                        <li><a href="./Inscripciones.html" class="block py-2 px-3 rounded hover:bg-white/10">Inscripciones</a></li>
+                        <li><a href="./Tecnicaturas.html" class="block py-2 px-3 rounded hover:bg-white/10">Tecnicaturas</a></li>
+                        <li><a href="./Campus.html" class="block py-2 px-3 rounded hover:bg-white/10">Campus</a></li>
+                        <li><a href="./Practicas.html" class="block py-2 px-3 rounded hover:bg-white/10">Prácticas</a></li>
+                        <li><a href="./pañol.html" class="block py-2 px-3 rounded hover:bg-white/10">Pañol</a></li>
+                        <li><a href="./Mensajeria.html" class="hover:underline">Mensajeria Interna</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- SECCIÓN CENTRAL: CONTENIDO PRINCIPAL -->
+        <div class="relative z-10 flex flex-col items-center min-h-screen">
+
+            <!-- TÍTULO -->
+            <div class="text-white text-4xl md:text-6xl text-center font-extrabold mt-16">
+                <h1>Noticias</h1>
+            </div>
+
+            <!-- CONTENIDO INFORMATIVO -->
+            <div class="text-white text-center max-w-4xl mx-auto px-4 mt-16 md:mt-32">
+                <div class="bg-slate-600/20 text-white p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-md">
+                    <p class="font-extrabold text-xl md:text-2xl mb-4">¿Qué es Informatec 4?</p>
+                    <p class="text-base md:text-lg mb-4 leading-relaxed">
+                        Informatec es el portal de noticias oficial de la E.E.S.T. N°4, donde cada logro y noticia tiene su lugar 
+                    </p>
+                    <p class="text-base md:text-lg leading-relaxed">
+                      Un espacio digital para compartir las últimas novedades, eventos y logros de la institución, diseñado por estudiantes para mantenernos informados y conectados dentro de la comunidad educativa. Pensada para festejar el esfuerzo y avances que construyen nuestra historia.
+                    </p>
+                </div>
+            </div>
+
+            <!-- BOTÓN DE ACCESO -->
+            <div class="mt-8 text-center">
+                <a href="https://informatec4.vercel.app/" target="_blank" class="inline-block text-white py-3 md:py-4 px-6 md:px-8 rounded-2xl font-bold text-base md:text-lg shadow-xl bg-slate-600/90 backdrop-blur-sm border border-white/20 hover:bg-gray-500 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    Acceder a Informatec 4
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 py-8 border-b border-gray-700">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Escuela de Educacion Secundaria Técnica 4</h3>
+                    <p class="text-gray-400 text-sm">
+                    La página oficial de la Escuela de Educación Secundaria Técnica N4 "Ricardo Alberto López".
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces rápidos</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="./institucion.html" class="hover:underline">Institución</a></li>
+                        <li><a href="./Noticias.html" class="hover:underline">Noticias</a></li>
+                        <li><a href="./Inscripciones.html" class="hover:underline">Inscripciones</a></li>
+                        <li><a href="./Tecnicaturas.html" class="hover:underline">Tecnicaturas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="space-y-2 text-sm text-gray-400 mt-11">
+                        <li><a href="./Campus.html" class="hover:underline">Campus</a></li>
+                        <li><a href="./Practicas.html" class="hover:underline">Prácticas</a></li>
+                        <li><a href="./pañol.html" class="hover:underline">Pañol</a></li>
+                        <li><a href="./Mensajeria.html" class="hover:underline">Mensajeria Interna</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Conecta con nosotros</h3>
+                    <div class="flex space-x-4">
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li><h3>Telefono: 011 4261-4796</h3></li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+            <div class="mt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400">
+                    &copy; 2025 Derechos Reservados a Estudiantes de la Técnica 4.
+                </p>
+                <div class="mt-4 md:mt-0">
+                    <ul class="flex space-x-6 text-xs text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Política de privacidad</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Términos de uso</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Política de cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

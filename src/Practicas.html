@@ -2,12 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Iconos de la página -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Título de la página -->    
     <title>Prácticas Profesionalizantes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body id="main-body" class="bg-[#4A5568] transition-colors duration-300">
-    <div class="w-full px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+<body class="bg-gradient-to-b from-slate-800 to-slate-500">
+    <div class="w-full px-3 sm:px-6 space-y-4 sm:space-y-6">
 
         <div class="relative z-10 flex items-center justify-between">
             <div class="mt-4">
@@ -53,223 +65,263 @@
             </div>
         </div> 
         
-        <!-- Sección inicial con título y botón -->
-        <div class="flex flex-col items-center justify-center min-h-[60vh] py-12">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 text-center">
-                Prácticas Profesionalizantes
-            </h1>
-            <p class="text-white text-lg sm:text-xl md:text-2xl text-center max-w-4xl px-4 mb-8 leading-relaxed">
-                Las Prácticas Profesionalizantes son estrategias formativas integradas en la propuesta curricular de la Educación Técnica. Fueron incorporadas como una materia más en el 7º año del secundario desde el año 2013. Se presentan como espacios de prácticas laborales relacionados con su futura profesión, y son de carácter obligatorio.
-            </p>
-            <button 
-                id="info-button" 
-                onclick="scrollToContent()"
-                class="bg-white text-gray-700 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 shadow-lg"
-            >
-                Información sobre Prácticas
-            </button>
-        </div>
-        
-        <!-- Contenedor de tarjetas con información -->
-        <div id="content-section" class="space-y-6 opacity-0 hidden transition-opacity duration-500">
-        
-        <!-- Tarjeta 1: Prácticas Profesionalizantes -->
-        <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8">
-            <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-                <div class="flex-1">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
-                        ¿En qué consisten las prácticas profesionalizantes?
-                    </h2>
-                    <p class="text-base text-gray-700 leading-relaxed mb-4">
-                        Las Prácticas Profesionalizantes se encuentran supervisadas por 2 docentes a cargo, y las distintas actividades que desarrollan los alumnos en estos espacios tienen como finalidad que estos consoliden, integren y amplíen, las capacidades y saberes trabajados durante los 7 años de su formación.
-                    </p>
-                    <p class="text-base text-gray-700 leading-relaxed mb-6">
-                        En dos ejes, el técnico, relacionado el abordaje y resolución a las problemáticas técnicas presentadas en este circuito laboral al que se integra el alumno, habrá un mínimo de 200 hs de Prácticas Profesionalizantes para cumplir. Y el eje pedagógico, relacionado con las relaciones vinculares, las comunicaciones, la puesta en marcha de estrategias que complementan y acompañan la resolución del aspecto técnico. Ambos ejes son de importancia y se involucran en la aprobación de este espacio curricular.
-                    </p>
-                    
-                </div>
-                <div class="flex-shrink-0 w-full md:w-80">
-                    <img src="./assets/programadores.png" alt="Prácticas Profesionalizantes" class="w-full h-auto rounded-lg object-cover">
-                </div>
-            </div>
-            
-            <!-- Segunda sección con imagen -->
-            <div class="flex flex-col md:flex-row gap-6 md:gap-8 mt-8">
-                <div class="flex-1">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
-                        ¿Qué realizan los alumnos en las prácticas profesionalizantes?
-                    </h2>
-                    <p class="text-base text-gray-700 leading-relaxed mb-4">
-                        Cada grupo de alumnos participará de las Prácticas dentro del marco de un proyecto elaborado por los docentes a cargo y la institución (escuela, empresas, u otro tipo de instituciones) que participa de estas de acuerdo a cierta problemática a resolver.
-                    </p>
-                    <p class="text-base text-gray-700 leading-relaxed mb-4">
-                        Los lugares elegidos para las Prácticas Profesionalizantes son seleccionados por los profesores a cargo de esta materia.
-                    </p>
-                    <p class="text-base text-gray-700 leading-relaxed">
-                        Para aprobar esta materia hay que tener en cuenta que, es muy importante la asistencia a ellas, el trabajo tiene que estar bien hecho y completo, y sobre todo hay que tener al tanto a los profesores por cualquier inconveniente que se tenga en los lugares concurridos o si por alguna razón no pueden asistir a ellas.
-                    </p>
-                </div>
-                <div class="flex-shrink-0 w-full md:w-80">
-                    <img src="./assets/prog3.png" alt="Estudiantes en prácticas profesionalizantes" class="w-full h-auto rounded-lg object-cover">
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 2: Prácticas profesionalizantes municipalidad -->
-        <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8">
-            <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-                <div class="flex-1">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
-                        Prácticas Profesionalizantes Municipalidad
-                    </h2>
-                    <p class="text-base text-gray-700 leading-relaxed mb-4">
-                        En PP municipales los alumnos realizan tareas en distintas instituciones del municipio de Berazategui. Estas actividades brindan la oportunidad de conocer el funcionamiento de los organismos públicos y colaborar en proyectos que beneficien a la comunidad.
-                    </p>
-                    <button onclick="toggleMunicipalInfo(this)" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-md mt-4">
-                        <span>Ver más</span>
-                        <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="flex-shrink-0 w-full md:w-80">
-                    <img src="./assets/prog4.png" alt="Prácticas Municipalidad" class="w-full h-auto rounded-lg object-cover">
-                </div>
-            </div>
-        </div>
-
-        <!-- Opciones de Prácticas Municipalidad -->
-        <div id="municipal-sub-sections" class="max-w-7xl mx-auto space-y-4 opacity-0 hidden transition-all duration-300 ease-out">
-            <!-- Cementerio parque municipal -->
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Cementerio parque municipal de Berazategui</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
-                    Los alumnos participan en tareas de mantenimiento, organización y gestión del cementerio municipal. Realizan actividades relacionadas con la administración de espacios, atención al público y colaboración en proyectos de mejora de las instalaciones.
+        <div class="rounded-lg p-4 sm:p-8 text-center">
+            <div class="bg-gray-400 rounded-none p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas Profesionalizantes
+                </h2>
+                <p class="text-black font-semibold leading-relaxed text-left text-sm sm:text-base mb-6">
+                    Las Prácticas Profesionalizantes son estrategias formativas integradas en la propuesta curricular de la Educación Técnica. Fueron incorporadas como una materia más en el 7º año del secundario desde el año 2013. Se presentan como espacios de prácticas laborales relacionados con su futura profesión, y son de carácter obligatorio.
                 </p>
-            </div>
-            
-            <!-- Obras y gestión -->
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Obras y gestión</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
-                    En esta área, los estudiantes colaboran en proyectos de infraestructura y obras públicas. Participan en tareas de planificación, seguimiento de proyectos, gestión de recursos y apoyo técnico en diversas iniciativas que contribuyen al desarrollo urbano del municipio.
-                </p>
-            </div>
-            
-            <!-- Secretaria de empleo -->
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-200">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Secretaria de empleo</h3>
-                <p class="text-sm text-gray-600 leading-relaxed">
-                    Los alumnos trabajan en la secretaría de empleo colaborando en tareas administrativas, atención al público, gestión de bases de datos y apoyo en programas de empleo y capacitación laboral para la comunidad.
-                </p>
-            </div>
-        </div>
-
-        <!-- Tarjeta 3: Prácticas profesionalizantes en universidades -->
-        <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8">
-            <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-                <div class="flex-1">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
-                        Prácticas Profesionalizantes en Universidades
-                    </h2>
-                    <p class="text-base text-gray-700 leading-relaxed mb-4">
-                        Las PP en Universidades permiten a los alumnos conocer el ámbito académico y científico, fortaleciendo su vínculo con la educación superior. Estas experiencias facilitan la aplicación de conocimientos técnicos en entornos de investigación, extensión universitaria y desarrollo tecnológico, promoviendo la continuidad de los estudios y el aprendizaje colaborativo.
-                    </p>
-                    <div class="text-base text-gray-700 leading-relaxed">
-                        <p class="mb-2">• Universidad Tecnológica Nacional Facultad Regional Avellaneda</p>
-                        <p>• Universidad Nacional Arturo Jauretche</p>
-                    </div>
-                </div>
-                <div class="flex-shrink-0 w-full md:w-80">
-                    <img src="./assets/prog5.png" alt="Prácticas en Universidades" class="w-full h-auto rounded-lg object-cover">
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 4: Prácticas profesionalizantes en instituciones educativas -->
-        <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8">
-            <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-                <div class="flex-1">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
-                        Prácticas Profesionalizantes en Instituciones Educativas
-                    </h2>
-                    <p class="text-base text-gray-700 leading-relaxed mb-4">
-                        Las PP en Instituciones Educativas brindan la posibilidad de realizar experiencias en escuelas de distintos niveles. Los alumnos colaboran en tareas de apoyo técnico, mantenimiento, y proyectos institucionales, fortaleciendo su sentido de pertenencia, responsabilidad y trabajo en equipo dentro del ámbito educativo.
-                    </p>
-                    <div class="text-base text-gray-700 leading-relaxed">
-                        <p class="mb-2">• EEST N° 6 - Berazategui</p>
-                        <p class="mb-2">• EES N° 19</p>
-                        <p>• Jardín de infantes N°924</p>
-                    </div>
-                </div>
-                <div class="flex-shrink-0 w-full md:w-80">
-                    <img src="./assets/prog6.png" alt="Prácticas en Instituciones Educativas" class="w-full h-auto rounded-lg object-cover">
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta 5: Prácticas profesionalizantes privadas -->
-        <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8">
-            <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-                <div class="flex-1">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
-                        Prácticas Profesionalizantes Privadas
-                    </h2>
-                    <p class="text-base text-gray-700 leading-relaxed mb-4">
-                        Las PP privadas se desarrollan en empresas del ámbito privado. En este caso, los estudiantes cumplen con una determinada cantidad de horas y adquieren experiencia en entornos laborales reales. En muchos casos, estas prácticas pueden abrirles la posibilidad de obtener un empleo formal dentro de la misma empresa.
-                    </p>
-                    <div class="text-base text-gray-700 leading-relaxed">
-                        <p class="mb-4">• Empresa dedicada a brindar servicios de consultoría, gestión y soluciones empresariales, especialmente orientadas a la optimización de procesos administrativos, financieros y de recursos humanos.</p>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-1">
+                    <div class="text-left space-y-6">
                         
-                        <div id="info-privadas" class="max-h-0 overflow-hidden transition-all duration-300 ease-out mb-4">
-                            <p class="mb-2">• Compañía especializada en el desarrollo de software y sistemas informáticos, ofreciendo soluciones tecnológicas a medida para empresas y organizaciones</p>
-                            <p class="mb-2">• Empresa del rubro telecomunicaciones y redes, enfocada en la instalación, mantenimiento y gestión de servicios de conectividad, fibra óptica e internet corporativo.</p>
-                            <p class="mb-2">• Representación y defensa de los derechos laborales de los docentes, así como a la organización de actividades gremiales, culturales y formativas.</p>
-                            <p class="mb-2">• Empresa orientada a la gestión ambiental y soluciones tecnológicas sostenibles, desarrollando proyectos relacionados con el tratamiento de residuos, eficiencia energética y control ambiental</p>
-                            <p class="mb-2">• Organización sin fines de lucro que promueve el desarrollo económico, social y productivo en la provincia de Buenos Aires, impulsando programas de capacitación, innovación y apoyo a emprendedores.</p>
-                            <p class="mb-2">• Empresa del sector del entretenimiento y juegos de azar, dedicada a la explotación de salas de bingo y servicios recreativos. Los estudiantes realizan tareas de programación, mantenimiento de servicios gráficos utilizando Power BI, y pruebas de ejecución de una aplicación en un entorno de Windows 10.</p>
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">¿En qué consisten las prácticas profesionalizantes?</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las Prácticas Profesionalizantes se encuentran supervisadas por 2 docentes a cargo, y las distintas actividades que desarrollan los alumnos en estos espacios tienen como finalidad que estos consoliden, integren y amplíen, las capacidades y saberes trabajados durante los 7 años de su formación.
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                En dos ejes, el técnico, relacionado el abordaje y resolución a las problemáticas técnicas presentadas en este circuito laboral al que se integra el alumno, habrá un mínimo de 200 hs de Prácticas Profesionalizantes para cumplir. Y el eje pedagógico, relacionado con las relaciones vinculares, las comunicaciones, la puesta en marcha de estrategias que complementan y acompañan la resolución del aspecto técnico. Ambos ejes son de importancia y se involucran en la aprobación de este espacio curricular.
+                            </p>
                         </div>
                         
-                        <button onclick="toggleInfo('privadas', this)" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 text-sm font-medium rounded-md">
-                            <span>Ver más</span>
-                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
+                        <hr class="border-gray-600 my-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">¿Qué realizan los alumnos en las prácticas profesionalizantes?</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Cada grupo de alumnos participará de las Prácticas dentro del marco de un proyecto elaborado por los docentes a cargo y la institución (escuela, empresas, u otro tipo de instituciones) que participa de estas de acuerdo a cierta problemática a resolver.
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Los lugares elegidos para las Prácticas Profesionalizantes son seleccionados por los profesores a cargo de esta materia.
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed">
+                                Para aprobar esta materia hay que tener en cuenta que, es muy importante la asistencia a ellas, el trabajo tiene que estar bien hecho y completo, y sobre todo hay que tener al tanto a los profesores por cualquier inconveniente que se tenga en los lugares concurridos o si por alguna razón no pueden asistir a ellas.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-shrink-0 w-full md:w-80 space-y-4">
-                    <img src="./assets/prog7.png" alt="Prácticas Privadas" class="w-full h-auto rounded-lg object-cover">
-                    <div id="images-privadas" class="space-y-4 opacity-0 hidden transition-opacity duration-300">
-                        <img src="./assets/prog8.png" alt="Prácticas Privadas" class="w-full h-auto rounded-lg object-cover">
-                        <img src="./assets/prog10.png" alt="Prácticas Privadas" class="w-full h-auto rounded-lg object-cover">
-                    </div>
-                </div>
+                
+                <button onclick="toggleContent(1)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
             </div>
         </div>
 
-        <!-- Tarjeta 6: Prácticas profesionalizantes internas -->
-        <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8">
-            <div class="flex flex-col md:flex-row gap-6 md:gap-8">
-                <div class="flex-1">
-                    <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
-                        Prácticas Profesionalizantes Internas
-                    </h2>
-                    <p class="text-base text-gray-700 leading-relaxed mb-4">
-                        Las PP internas se llevan a cabo dentro de la institución educativa. Los alumnos deben cumplir con tareas asignadas por sus profesores, orientadas a fortalecer sus habilidades técnicas y profesionales, preparando así su inserción en el mundo laboral.
-                    </p>
-                    <div class="text-base text-gray-700 leading-relaxed">
-                        <p>• E.E.S.T N° 4</p>
+        <div class="rounded-lg p-4 sm:p-8 text-center">
+            <div class="bg-gray-400 rounded-none p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes municipalidad
+                </h2>
+                
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-2">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes municipales:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                En PP municipales los alumnos realizan tareas en distintas instituciones del municipio de Berazategui. Estas actividades brindan la oportunidad de conocer el funcionamiento de los organismos públicos y colaborar en proyectos que beneficien a la comunidad.
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed">
+                                • Cementerio parque municipal de Berazategui 
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed">
+                                • Obras y gestión 
+                            </p>
+                            <p class="text-black font-semibold leading-relaxed"> 
+                                • Secretaria de empleo 
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-shrink-0 w-full md:w-80">
-                    <img src="./assets/prog9.png" alt="Prácticas Internas" class="w-full h-auto rounded-lg object-cover">
-                </div>
+                
+                <button onclick="toggleContent(2)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
             </div>
         </div>
-        
+
+        <div class="rounded-lg p-4 sm:p-8 text-center">
+            <div class="bg-gray-400 rounded-none p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes en universidades
+                </h2>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-3">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes en universidades:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las PP en Universidades permiten a los alumnos conocer el ámbito académico y científico, fortaleciendo su vínculo con la educación superior. Estas experiencias facilitan la aplicación de conocimientos técnicos en entornos de investigación, extensión universitaria y desarrollo tecnológico, promoviendo la continuidad de los estudios y el aprendizaje colaborativo.
+                            </p>
+                            <div class="text-black font-semibold leading-relaxed">
+                                <p class="mb-2">• Universidad Tecnológica Nacional Facultad Regional Avellaneda</p>
+                                <p>• Universidad Nacional Arturo Jauretche</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(3)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
         </div>
-        <!-- Fin del contenedor de tarjetas -->
+
+        <div class="rounded-lg p-4 sm:p-8 text-center" >
+            <div class="bg-gray-400 rounded-none p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes en instituciones educativas
+                </h2>
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-4">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes en instituciones educativas:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las PP en Instituciones Educativas brindan la posibilidad de realizar experiencias en escuelas de distintos niveles. Los alumnos colaboran en tareas de apoyo técnico, mantenimiento, y proyectos institucionales, fortaleciendo su sentido de pertenencia, responsabilidad y trabajo en equipo dentro del ámbito educativo.
+                            </p>
+                            <div class="text-black font-semibold leading-relaxed">
+                                <p class="mb-2">• EEST N° 6 - Berazategui</p>
+                                <p class="mb-2">• EES N° 19</p>
+                                <p>• Jardín de infantes N°924</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(4)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
+        </div>
+
+        <div class="rounded-lg p-4 sm:p-8 text-center">
+            <div class="bg-gray-400 rounded-none p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes privadas
+                </h2>
+            
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-5">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes privadas:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las PP privadas se desarrollan en empresas del ámbito privado. En este caso, los estudiantes cumplen con una determinada cantidad de horas y adquieren experiencia en entornos laborales reales. En muchos casos, estas prácticas pueden abrirles la posibilidad de obtener un empleo formal dentro de la misma empresa.
+                            </p>
+                            <div class="text-black font-semibold leading-relaxed">
+                                <p class="text-sm">• Empresa dedicada a brindar servicios de consultoría, gestión y soluciones empresariales, especialmente orientadas a la optimización de procesos administrativos, financieros y de recursos humanos.</p>
+                                   
+                                    <p class="mb-2">• Compañía especializada en el desarrollo de software y sistemas informáticos, ofreciendo soluciones tecnológicas a medida para empresas y organizaciones</p>
+                                    
+                                     <p class="mb-2">• Empresa del rubro telecomunicaciones y redes, enfocada en la instalación, mantenimiento y gestión de servicios de conectividad, fibra óptica e internet corporativo.</p>
+                                   
+                                     <p class="mb-2">• Representación y defensa de los derechos laborales de los docentes, así como a la organización de actividades gremiales, culturales y formativas.</p>
+                                    
+                                    <p class="mb-2">• Empresa orientada a la gestión ambiental y soluciones tecnológicas sostenibles, desarrollando proyectos relacionados con el tratamiento de residuos, eficiencia energética y control ambiental</p>
+                                   
+                                    <p class="mb-2">• Organización sin fines de lucro que promueve el desarrollo económico, social y productivo en la provincia de Buenos Aires, impulsando programas de capacitación, innovación y apoyo a emprendedores.</p>
+                                   
+                                    <p class="mb-2">• Empresa del sector del entretenimiento y juegos de azar, dedicada a la explotación de salas de bingo y servicios recreativos. Los estudiantes realizan tareas de programación, mantenimiento de servicios gráficos utilizando Power BI, y pruebas de ejecución de una aplicación en un entorno de Windows 10, adquiriendo experiencia en entornos tecnológicos reales vinculados a la gestión del sistema del establecimiento.</p>
+
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(5)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
+        </div>
+
+        <div class="rounded-lg p-4 sm:p-8 text-center">
+            <div class="bg-gray-400 rounded-none p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-black mb-4 sm:mb-6">
+                    Prácticas profesionalizantes internas
+                </h2>
+        
+                
+                <div class="max-h-0 overflow-hidden transition-all duration-300 ease-out" id="content-6">
+                    <div class="text-left space-y-6">
+                        
+                        <hr class="border-gray-600 mb-6">
+                        
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-black mb-3 sm:mb-4">Prácticas profesionalizantes internas:</h3>
+                            <p class="text-black font-semibold leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
+                                Las PP internas se llevan a cabo dentro de la institución educativa. Los alumnos deben cumplir con tareas asignadas por sus profesores, orientadas a fortalecer sus habilidades técnicas y profesionales, preparando así su inserción en el mundo laboral.
+                            </p>
+                            <div class="text-black font-semibold leading-relaxed">
+                                <p>• E.E.S.T N° 4</p>
+                            </div>
+                        </div>
+                        
+                        <hr class="border-gray-600 my-6">
+                        
+                        <div>
+                            <div class="flex overflow-x-auto gap-4 sm:gap-6 mb-4 sm:mb-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 pb-2 sm:pb-0 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+                                <div class="flex-shrink-0 w-64 sm:w-full">
+                                    <img src="cable.png" 
+                                         alt="Estudiantes trabajando en computadoras en laboratorio" 
+                                         class="w-full aspect-square object-cover rounded-md">
+                                </div>
+                                <div class="flex-shrink-0 w-64 sm:w-full">
+                                    <img src="prog1.jpg" 
+                                         alt="Estudiantes trabajando con laptops en aula" 
+                                         class="w-full aspect-square object-cover rounded-md">
+                                </div>
+                                <div class="flex-shrink-0 w-64 sm:w-full">
+                                    <img src="prog2.jpg" 
+                                         alt="Trabajo de instalación y mantenimiento de cables" 
+                                         class="w-full aspect-square object-cover rounded-md">
+                                </div>
+                            </div>
+                            <style>
+                                @media (max-width: 639px) {
+                                    .scrollbar-thin::-webkit-scrollbar {
+                                        height: 8px;
+                                    }
+                                    .scrollbar-thin::-webkit-scrollbar-track {
+                                        background: #e5e7eb;
+                                        border-radius: 4px;
+                                    }
+                                    .scrollbar-thin::-webkit-scrollbar-thumb {
+                                        background: #9ca3af;
+                                        border-radius: 4px;
+                                    }
+                                    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+                                        background: #131414;
+                                    }
+                                }
+                            </style>
+                            <p class="text-sm text-black-900 text-center mb-6 sm:hidden"> Desliza para ver más →</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="toggleContent(6)" class="bg-gray-300 hover:bg-gray-300 text-gray-800 px-4 sm:px-6 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-6 text-sm sm:text-base w-full sm:w-auto">
+                    Ver más
+                </button>
+            </div>
+        </div>
 
     </div>
     <!-- Footer -->

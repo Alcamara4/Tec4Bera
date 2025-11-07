@@ -238,17 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	initTimelineScrollAnimation();
 	initAccordion();
 	initPracticasAccordion();
-	
-	// Inicializar el cambio de color de fondo en la página de Prácticas
-	const mainBody = document.getElementById('main-body');
-	if (mainBody) {
-		// Detectar el scroll y actualizar el color del fondo
-		window.addEventListener('scroll', updateBackgroundColor);
-		
-		// Actualizar al cargar la página
-		window.addEventListener('load', updateBackgroundColor);
-		updateBackgroundColor(); // Llamar inmediatamente también
-	}
+	initMobileSubmenus();
+	initDesktopSubmenus();
 });
 
 // Función para inicializar los acordeones
@@ -329,67 +320,6 @@ function initPracticasAccordion() {
 			button.textContent = 'Ver más';
 		}
 	};
-}
-
-// Funciones para la página de Prácticas Profesionalizantes
-// Paleta de colores de oscuro a claro
-const colorPalette = [
-	'#4A5568', // Más oscuro
-	'#556275', // Medio-oscuro
-	'#6C7A89', // Medio
-	'#8B95A5', // Medio-claro
-	'#A8B3C4'  // Más claro
-];
-
-function updateBackgroundColor() {
-	const body = document.getElementById('main-body');
-	if (!body) return;
-	
-	const windowHeight = window.innerHeight;
-	const documentHeight = document.documentElement.scrollHeight - windowHeight;
-	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	
-	// Calcular el porcentaje de scroll (0 a 1)
-	const scrollPercent = Math.min(scrollTop / documentHeight, 1);
-	
-	// Calcular el índice en la paleta de colores
-	const colorIndex = scrollPercent * (colorPalette.length - 1);
-	const lowerIndex = Math.floor(colorIndex);
-	const upperIndex = Math.min(Math.ceil(colorIndex), colorPalette.length - 1);
-	const ratio = colorIndex - lowerIndex;
-	
-	// Interpolar entre dos colores
-	const lowerColor = colorPalette[lowerIndex];
-	const upperColor = colorPalette[upperIndex];
-	const interpolatedColor = interpolateColor(lowerColor, upperColor, ratio);
-	
-	// Aplicar el color al fondo
-	body.style.backgroundColor = interpolatedColor;
-}
-
-function interpolateColor(color1, color2, ratio) {
-	// Convertir hex a RGB
-	const hex1 = color1.replace('#', '');
-	const hex2 = color2.replace('#', '');
-	
-	const r1 = parseInt(hex1.substring(0, 2), 16);
-	const g1 = parseInt(hex1.substring(2, 4), 16);
-	const b1 = parseInt(hex1.substring(4, 6), 16);
-	
-	const r2 = parseInt(hex2.substring(0, 2), 16);
-	const g2 = parseInt(hex2.substring(2, 4), 16);
-	const b2 = parseInt(hex2.substring(4, 6), 16);
-	
-	// Interpolar
-	const r = Math.round(r1 + (r2 - r1) * ratio);
-	const g = Math.round(g1 + (g2 - g1) * ratio);
-	const b = Math.round(b1 + (b2 - b1) * ratio);
-	
-	// Convertir de vuelta a hex
-	return '#' + [r, g, b].map(x => {
-		const hex = x.toString(16);
-		return hex.length === 1 ? '0' + hex : hex;
-	}).join('');
 }
 
 // Función para hacer scroll al contenido
@@ -487,5 +417,209 @@ window.toggleMunicipalInfo = function(button) {
 	}
 };
 
+
+// Submenús del menú móvil
+function initMobileSubmenus() {
+    const submenuToggles = document.querySelectorAll('.submenu-toggle');
+    if (!submenuToggles || !submenuToggles.length) return;
+
+    const navMenu = document.getElementById('nav-menu');
+
+    // Función para actualizar la altura del menú móvil
+    function updateNavMenuHeight() {
+        if (window.innerWidth < 768 && navMenu) {
+            // Obtener el contenedor interno del menú
+            const innerContainer = navMenu.querySelector('.flex.justify-center');
+            if (!innerContainer) return;
+            
+            // Calcular la altura real del contenido incluyendo márgenes
+            const innerHeight = innerContainer.offsetHeight;
+            const computedStyle = window.getComputedStyle(navMenu);
+            const paddingTop = parseFloat(computedStyle.paddingTop) || 0;
+            const paddingBottom = parseFloat(computedStyle.paddingBottom) || 0;
+            
+            // Calcular altura total
+            const totalHeight = innerHeight + paddingTop + paddingBottom;
+            
+            // Aplicar la nueva altura
+            navMenu.style.maxHeight = totalHeight + 'px';
+        }
+    }
+
+    submenuToggles.forEach(function (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+            const targetSelector = toggleBtn.getAttribute('data-target');
+            if (!targetSelector) return;
+            const submenu = document.querySelector(targetSelector);
+            if (!submenu) return;
+
+            const chevron = toggleBtn.querySelector('svg');
+            const isOpen = submenu.style.maxHeight && submenu.style.maxHeight !== '0px';
+
+            if (isOpen) {
+                submenu.style.maxHeight = '0px';
+                submenu.style.opacity = '0';
+                if (chevron) chevron.classList.remove('rotate-180');
+            } else {
+                submenu.style.maxHeight = submenu.scrollHeight + 'px';
+                submenu.style.opacity = '1';
+                if (chevron) chevron.classList.add('rotate-180');
+            }
+
+            // Ajustar la altura del contenedor del menú móvil
+            // Esperar múltiples frames y usar timeout para asegurar que el DOM se actualice
+            // El submenú tiene una transición de 300ms, así que esperamos un poco más
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        updateNavMenuHeight();
+                    }, 100); // Delay para que el submenú comience a expandirse
+                    // También actualizar después de que termine la transición
+                    setTimeout(() => {
+                        updateNavMenuHeight();
+                    }, 350); // Después de que termine la transición de 300ms
+                });
+            });
+        });
+    });
+}
+
+// Submenús del menú de escritorio
+function initDesktopSubmenus() {
+    // Solo ejecutar en escritorio (pantallas >= 768px)
+    if (window.innerWidth < 768) {
+        // Ocultar todos los submenús de escritorio en móvil
+        const desktopSubmenus = document.querySelectorAll('ul[id^="desktop-submenu"]');
+        desktopSubmenus.forEach(function(submenu) {
+            submenu.style.opacity = '0';
+            submenu.style.transform = 'translateY(-10px)';
+            submenu.style.pointerEvents = 'none';
+        });
+        return;
+    }
+
+    const submenuContainers = document.querySelectorAll('.desktop-submenu-container');
+    if (!submenuContainers || !submenuContainers.length) return;
+
+    // Evitar duplicar event listeners usando una marca
+    submenuContainers.forEach(function (container) {
+        // Si ya tiene event listeners, no agregar más
+        if (container.dataset.submenuInitialized === 'true') return;
+
+        const trigger = container.querySelector('.desktop-submenu-trigger');
+        const submenu = container.querySelector('ul[id^="desktop-submenu"]');
+        
+        if (!trigger || !submenu) return;
+
+        // Marcar como inicializado
+        container.dataset.submenuInitialized = 'true';
+
+        let hideTimeout = null;
+        let isMouseOverSubmenu = false;
+
+        // Función para mostrar el submenú
+        function showSubmenu() {
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+            submenu.style.opacity = '1';
+            submenu.style.transform = 'translateY(0)';
+            submenu.style.pointerEvents = 'auto';
+            submenu.style.zIndex = '9999';
+            isMouseOverSubmenu = true;
+        }
+
+        // Función para ocultar el submenú
+        function hideSubmenu() {
+            // No ocultar si el mouse todavía está sobre el submenú
+            if (isMouseOverSubmenu) {
+                return;
+            }
+            hideTimeout = setTimeout(function() {
+                // Verificar nuevamente antes de ocultar
+                if (!isMouseOverSubmenu) {
+                    submenu.style.opacity = '0';
+                    submenu.style.transform = 'translateY(-10px)';
+                    submenu.style.pointerEvents = 'none';
+                }
+            }, 300); // Delay para dar tiempo suficiente
+        }
+
+        // Event listener para cuando el mouse entra al contenedor
+        container.addEventListener('mouseenter', function() {
+            showSubmenu();
+        });
+
+        // Event listener para cuando el mouse sale del contenedor
+        container.addEventListener('mouseleave', function(e) {
+            // Verificar si el mouse se está moviendo hacia el submenú
+            const relatedTarget = e.relatedTarget;
+            if (relatedTarget && (submenu.contains(relatedTarget) || submenu === relatedTarget)) {
+                isMouseOverSubmenu = true;
+                return; // No ocultar si el mouse va hacia el submenú
+            }
+            isMouseOverSubmenu = false;
+            hideSubmenu();
+        });
+
+        // Event listeners específicos para el submenú - mantenerlo abierto
+        submenu.addEventListener('mouseenter', function() {
+            isMouseOverSubmenu = true;
+            showSubmenu();
+        });
+
+        submenu.addEventListener('mouseleave', function(e) {
+            const relatedTarget = e.relatedTarget;
+            // Si el mouse no va hacia el trigger o el contenedor, ocultar
+            if (!relatedTarget || (!container.contains(relatedTarget) && relatedTarget !== trigger)) {
+                isMouseOverSubmenu = false;
+                hideSubmenu();
+            } else {
+                isMouseOverSubmenu = true;
+            }
+        });
+
+        // Asegurar que los enlaces sean clickeables y mantengan el submenú abierto
+        const submenuLinks = submenu.querySelectorAll('a');
+        submenuLinks.forEach(function(link) {
+            link.addEventListener('mouseenter', function() {
+                isMouseOverSubmenu = true;
+                showSubmenu();
+            });
+            link.addEventListener('mouseover', function() {
+                isMouseOverSubmenu = true;
+                showSubmenu();
+            });
+            // Prevenir que el submenú se cierre al hacer clic
+            link.addEventListener('mousedown', function(e) {
+                isMouseOverSubmenu = true;
+                showSubmenu();
+            });
+            link.addEventListener('click', function(e) {
+                // Permitir que el enlace funcione normalmente
+                isMouseOverSubmenu = true;
+            });
+        });
+    });
+}
+
+// Manejar el resize de la ventana para submenús de escritorio
+let desktopSubmenuResizeTimeout;
+if (!window.desktopSubmenuResizeHandler) {
+    window.desktopSubmenuResizeHandler = function() {
+        clearTimeout(desktopSubmenuResizeTimeout);
+        desktopSubmenuResizeTimeout = setTimeout(function() {
+            // Resetear la marca de inicialización para permitir reinicialización
+            const submenuContainers = document.querySelectorAll('.desktop-submenu-container');
+            submenuContainers.forEach(function(container) {
+                container.dataset.submenuInitialized = 'false';
+            });
+            // Reinicializar
+            initDesktopSubmenus();
+        }, 250);
+    };
+    window.addEventListener('resize', window.desktopSubmenuResizeHandler);
+}
 
 

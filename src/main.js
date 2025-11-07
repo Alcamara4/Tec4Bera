@@ -358,7 +358,7 @@ window.toggleInfo = function(tipo, button) {
 		if (isExpanded) {
 			// Ocultar
 			infoElement.style.maxHeight = '0px';
-			if (span) span.textContent = 'Ver más';
+			if (span) span.textContent = 'Oferentes';
 			if (svg) svg.style.transform = 'rotate(0deg)';
 			
 			// Ocultar imágenes si es la sección de privadas
@@ -372,7 +372,7 @@ window.toggleInfo = function(tipo, button) {
 		} else {
 			// Mostrar
 			infoElement.style.maxHeight = infoElement.scrollHeight + 'px';
-			if (span) span.textContent = 'Ver menos';
+			if (span) span.textContent = 'Ocultar Oferentes';
 			if (svg) svg.style.transform = 'rotate(180deg)';
 			
 			// Mostrar imágenes si es la sección de privadas
@@ -402,7 +402,7 @@ window.toggleMunicipalInfo = function(button) {
 			subSections.classList.add('hidden');
 			subSections.classList.remove('opacity-100');
 			subSections.classList.add('opacity-0');
-			if (span) span.textContent = 'Ver más';
+			if (span) span.textContent = 'Oferentes';
 			if (svg) svg.style.transform = 'rotate(0deg)';
 		} else {
 			// Mostrar
@@ -411,7 +411,7 @@ window.toggleMunicipalInfo = function(button) {
 				subSections.classList.remove('opacity-0');
 				subSections.classList.add('opacity-100');
 			}, 10);
-			if (span) span.textContent = 'Ver menos';
+			if (span) span.textContent = 'Ocultar Oferentes';
 			if (svg) svg.style.transform = 'rotate(180deg)';
 		}
 	}
